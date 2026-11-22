@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow Africa Youth | Empower. Connect. Thrive.</title>
-    
-    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
     <style>
-        /* ================= VARIABLES & RESET ================= */
         :root {
-            --primary-purple: #6b21a8; 
+            --primary-purple: #6b21a8;
             --hero-overlay: linear-gradient(135deg, rgba(107, 33, 168, 0.9) 0%, rgba(219, 39, 119, 0.85) 100%);
             --yellow: #facc15;
             --pink: #ec4899;
@@ -24,115 +20,41 @@
             --whatsapp-green: #25D366;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--light-bg); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* ================= ALL ANIMATIONS ================= */
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float-whatsapp {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes pulse-btn {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float-whatsapp { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+        @keyframes pulse-btn { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* Scroll Reveal Classes */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
-        .delay-3 { transition-delay: 0.6s; }
+        .delay-1 { transition-delay: 0.2s; } .delay-2 { transition-delay: 0.4s; } .delay-3 { transition-delay: 0.6s; }
 
-        /* ================= HEADER / NAVBAR ================= */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 50px;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            animation: slideDown 0.8s ease-out;
-            transition: var(--transition);
-        }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); animation: slideDown 0.8s ease-out; transition: var(--transition); }
         .navbar.scrolled { padding: 10px 50px; background: rgba(15, 23, 42, 1); }
-
-        .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; color: white;}
-        .logo-img { height: 45px; width: auto; object-fit: contain; border-radius: 8px; background: white; padding: 4px;}
-        
+        .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; color: white; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; border-radius: 8px; background: white; padding: 4px; }
         .nav-links { display: flex; gap: 25px; align-items: center; font-size: 0.9rem; font-weight: 600; }
-        .nav-links li a { transition: var(--transition); cursor: pointer; color: rgba(255,255,255,0.8); position: relative;}
+        .nav-links li a { transition: var(--transition); cursor: pointer; color: rgba(255,255,255,0.8); position: relative; }
         .nav-links li a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--yellow); transition: var(--transition); }
         .nav-links li a:hover { color: var(--white); }
         .nav-links li a:hover::after { width: 100%; }
-
-        .btn-contact-nav {
-            background: var(--white); color: var(--primary-purple);
-            padding: 10px 25px; border-radius: 30px; font-weight: 700;
-            transition: var(--transition); border: none; cursor: pointer;
-        }
+        .btn-contact-nav { background: var(--white); color: var(--primary-purple); padding: 10px 25px; border-radius: 30px; font-weight: 700; transition: var(--transition); border: none; cursor: pointer; }
         .btn-contact-nav:hover { background: var(--yellow); transform: translateY(-2px); }
 
-        /* ================= HERO SECTION ================= */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 60px;
-            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            background-blend-mode: overlay;
-            color: white;
-        }
-
-        .badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 30px;
-            font-size: 0.85rem; font-weight: 600; margin-bottom: 25px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 60px; background: var(--hero-overlay), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; background-blend-mode: overlay; color: white; }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; animation: fadeInUp 0.8s ease-out 0.2s both; }
         .badge i { color: var(--yellow); }
-
-        .hero h1 {
-            font-size: 4.5rem; font-weight: 900; line-height: 1.1;
-            max-width: 900px; margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out 0.4s both; letter-spacing: -1px;
-        }
+        .hero h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.1; max-width: 900px; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.4s both; letter-spacing: -1px; }
         .hero h1 .text-yellow { color: var(--yellow); }
         .hero h1 .text-pink { color: var(--pink); }
-
-        .hero p {
-            font-size: 1.15rem; max-width: 650px; margin-bottom: 40px; opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .hero-buttons {
-            display: flex; gap: 15px; margin-bottom: 60px;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
-        }
-
-        .btn {
-            padding: 14px 30px; border-radius: 30px; font-size: 1rem; font-weight: 700;
-            cursor: pointer; display: flex; align-items: center; gap: 8px; transition: var(--transition); border: none;
-        }
+        .hero p { font-size: 1.15rem; max-width: 650px; margin-bottom: 40px; opacity: 0.9; animation: fadeInUp 0.8s ease-out 0.6s both; }
+        .hero-buttons { display: flex; gap: 15px; margin-bottom: 60px; animation: fadeInUp 0.8s ease-out 0.8s both; }
+        .btn { padding: 14px 30px; border-radius: 30px; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: var(--transition); border: none; }
         .btn-primary { background: var(--white); color: var(--primary-purple); }
         .btn-primary:hover { background: var(--yellow); color: var(--dark-bg); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(250, 204, 21, 0.4); }
         .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.5); color: var(--white); }
@@ -142,93 +64,32 @@
         .stat-item h2 { font-size: 2.5rem; font-weight: 800; color: var(--yellow); margin-bottom: 5px; }
         .stat-item p { font-size: 0.85rem; font-weight: 500; opacity: 0.9; }
 
-        /* ================= SECTIONS (Common) ================= */
         section { padding: 100px 20px; }
         .section-container { max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 50px; color: var(--dark-bg); }
         .section-title span { color: var(--primary-purple); }
 
-        /* ================= PROGRAMS ================= */
         #programs { background: var(--light-bg); }
         .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
-        .program-card { 
-            background: white; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: var(--transition); 
-            display: flex;
-            flex-direction: column;
-        }
+        .program-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); display: flex; flex-direction: column; }
         .program-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15); }
-        
-        .video-thumbnail {
-            position: relative;
-            height: 220px;
-            background: linear-gradient(45deg, #1e293b, #334155);
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .video-thumbnail::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: rgba(0,0,0,0.3);
-            transition: var(--transition);
-        }
+        .video-thumbnail { position: relative; height: 220px; background: linear-gradient(45deg, #1e293b, #334155); background-size: cover; background-position: center; cursor: pointer; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        .video-thumbnail::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); transition: var(--transition); }
         .video-thumbnail:hover::after { background: rgba(0,0,0,0.1); }
-        
-        .play-btn-overlay {
-            position: relative;
-            z-index: 2;
-            width: 60px; height: 60px;
-            background: #ff0000; color: white;
-            border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 1.5rem;
-            transition: var(--transition);
-            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5);
-            animation: pulse-btn 2s infinite;
-        }
+        .play-btn-overlay { position: relative; z-index: 2; width: 60px; height: 60px; background: #ff0000; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; transition: var(--transition); animation: pulse-btn 2s infinite; }
         .video-thumbnail:hover .play-btn-overlay { transform: scale(1.1); }
-
-        .program-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column;}
+        .program-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .program-content h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: var(--dark-bg); }
-        .program-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;}
-        
-        .btn-read-more { 
-            color: var(--primary-purple); 
-            font-weight: 700; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 5px; 
-            cursor: pointer; 
-            transition: var(--transition);
-            background: none; border: none; padding: 0; font-size: 0.95rem; font-family: inherit;
-            margin-top: auto;
-            width: fit-content;
-        }
+        .program-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .btn-read-more { color: var(--primary-purple); font-weight: 700; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; transition: var(--transition); background: none; border: none; padding: 0; font-size: 0.95rem; font-family: inherit; margin-top: auto; width: fit-content; }
         .btn-read-more:hover { gap: 10px; color: var(--pink); transform: translateX(5px); }
 
-        /* --- ABOUT --- */
         #about { background: white; }
         .about-content { display: flex; align-items: center; gap: 50px; }
         .about-text { flex: 1; }
         .about-text p { color: var(--text-light); font-size: 1.05rem; margin-bottom: 20px; }
-        
-        .about-image { 
-            flex: 1; height: 400px; 
-            background: linear-gradient(45deg, #1e293b, #334155);
-            border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-        }
+        .about-image { flex: 1; height: 400px; background: linear-gradient(45deg, #1e293b, #334155); border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background-size: cover; background-position: center; }
 
-        /* --- SPONSOR --- */
         #sponsor { background: var(--primary-purple); color: white; text-align: center; }
         #sponsor .section-title { color: white; }
         #sponsor .section-title span { color: var(--yellow); }
@@ -236,7 +97,6 @@
         .btn-sponsor { background: var(--yellow); color: var(--dark-bg); padding: 15px 40px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; border: none; cursor: pointer; transition: var(--transition); }
         .btn-sponsor:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(250, 204, 21, 0.4); }
 
-        /* --- TESTIMONIALS --- */
         #testimonials { background: var(--light-bg); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .testimonial-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
@@ -247,7 +107,6 @@
         .user-details h4 { color: var(--dark-bg); font-weight: 700; }
         .user-details p { font-size: 0.85rem; margin: 0; color: var(--text-light); }
 
-        /* --- FAQs --- */
         #faqs { background: white; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { border-bottom: 1px solid #e2e8f0; margin-bottom: 15px; }
@@ -258,94 +117,42 @@
         .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--primary-purple); }
         .faq-question i { transition: var(--transition); }
 
-        /* ================= FOOTER ================= */
         .footer { background: var(--dark-bg); color: white; text-align: center; padding: 30px 20px; border-top: 4px solid var(--primary-purple); }
         .footer p { opacity: 0.7; font-size: 0.9rem; }
 
-        /* ================= WHATSAPP FLOATING BUTTON ================= */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: var(--whatsapp-green);
-            color: white; width: 65px; height: 65px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 2.2rem; z-index: 9999;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            transition: var(--transition);
-            animation: float-whatsapp 3s ease-in-out infinite, pulse-btn 2s infinite;
-            cursor: pointer; text-decoration: none;
-        }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; z-index: 9999; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: var(--transition); animation: float-whatsapp 3s ease-in-out infinite, pulse-btn 2s infinite; cursor: pointer; text-decoration: none; }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
 
-        /* ================= MODALS ================= */
-        .modal-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; 
-            display: flex; justify-content: center; align-items: center; 
-            opacity: 0; visibility: hidden; transition: var(--transition); 
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: var(--transition); }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        
-        .modal-content { 
-            background: var(--white); color: var(--text-dark); 
-            width: 90%; max-width: 550px; border-radius: 20px; padding: 40px 35px; 
-            position: relative; transform: translateY(30px) scale(0.95); 
-            transition: var(--transition); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
+        .modal-content { background: var(--white); color: var(--text-dark); width: 90%; max-width: 550px; border-radius: 20px; padding: 40px 35px; position: relative; transform: translateY(30px) scale(0.95); transition: var(--transition); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); overflow: hidden; }
         .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-        
-        .modal-content::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: linear-gradient(90deg, var(--primary-purple), var(--pink));
-        }
-
-        .modal-close { 
-            position: absolute; top: 15px; right: 15px; 
-            background: #f1f5f9; border: none; width: 35px; height: 35px; 
-            border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: var(--text-dark); 
-            display: flex; justify-content: center; align-items: center; transition: var(--transition); 
-        }
+        .modal-content::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--primary-purple), var(--pink)); }
+        .modal-close { position: absolute; top: 15px; right: 15px; background: #f1f5f9; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: var(--text-dark); display: flex; justify-content: center; align-items: center; transition: var(--transition); }
         .modal-close:hover { background: #ef4444; color: white; transform: rotate(90deg); }
-        
         .modal-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; color: var(--primary-purple); }
         .modal-subtitle { font-size: 0.95rem; color: var(--text-light); margin-bottom: 25px; }
-
         .modal-form { display: flex; flex-direction: column; gap: 20px; }
         .input-group { position: relative; }
         .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1rem; transition: var(--transition); }
         .input-group textarea + i { top: 20px; }
-
-        .modal-form input, .modal-form textarea { 
-            width: 100%; padding: 15px 15px 15px 45px; border: 1px solid #cbd5e1; border-radius: 10px; 
-            font-family: inherit; font-size: 0.95rem; outline: none; transition: var(--transition); background: #f8fafc;
-        }
+        .modal-form input, .modal-form textarea { width: 100%; padding: 15px 15px 15px 45px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: inherit; font-size: 0.95rem; outline: none; transition: var(--transition); background: #f8fafc; }
         .modal-form input:focus, .modal-form textarea:focus { border-color: var(--primary-purple); box-shadow: 0 0 0 4px rgba(107, 33, 168, 0.1); background: white; }
         .modal-form textarea { resize: vertical; min-height: 120px; }
-        
-        .btn-submit { 
-            padding: 15px; background: linear-gradient(135deg, var(--primary-purple), var(--pink)); 
-            color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; 
-            transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
-        }
+        .btn-submit { padding: 15px; background: linear-gradient(135deg, var(--primary-purple), var(--pink)); color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3); }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(107, 33, 168, 0.5); }
 
-        /* Modal Learn More (Video Info) */
-        .modal-video-thumb {
-            width: 100%; height: 200px; border-radius: 10px; background: linear-gradient(45deg, #1e293b, #334155); background-size: cover; background-position: center; margin-bottom: 20px;
-        }
+        .modal-video-thumb { width: 100%; height: 200px; border-radius: 10px; background: linear-gradient(45deg, #1e293b, #334155); background-size: cover; background-position: center; margin-bottom: 20px; }
         .modal-video-info h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--dark-bg); }
         .modal-video-info p { color: var(--text-light); margin-bottom: 20px; font-size: 1rem; line-height: 1.6; }
-        .modal-video-info .meta { font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; display: flex; gap: 15px;}
+        .modal-video-info .meta { font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; display: flex; gap: 15px; }
         .btn-youtube { display: flex; align-items: center; justify-content: center; gap: 10px; background: #ff0000; color: white; padding: 15px; border-radius: 10px; font-weight: 700; text-align: center; transition: var(--transition); width: 100%; }
         .btn-youtube:hover { background: #cc0000; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,0,0,0.3); }
 
-        /* Toast */
         #toast-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; }
         .toast { background: var(--dark-bg); color: white; padding: 15px 30px; border-radius: 30px; font-weight: 600; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: fadeInUp 0.4s ease-out; }
         .toast i { color: var(--whatsapp-green); font-size: 1.2rem; }
 
-        /* ================= RESPONSIVE ================= */
         @media (max-width: 900px) {
             .hero h1 { font-size: 3rem; }
             .nav-links { display: none; }
@@ -366,71 +173,42 @@
 </head>
 <body>
 
-    <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
-    <a href="https://wa.me/250788123456?text=Muraho%20Grow%20Africa%20Youth,%20nifuza%20kubamenya%20byinshi." target="_blank" class="whatsapp-float" title="Twandikire kuri WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- Toast Notification Container -->
+    <a href="https://wa.me/250788123456?text=Muraho%20Grow%20Africa%20Youth" target="_blank" class="whatsapp-float" title="Twandikire kuri WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <div id="toast-container"></div>
 
-    <!-- ================= MODALS ================= -->
-    
-    <!-- 1. CONTACT MODAL -->
+    <!-- CONTACT MODAL -->
     <div class="modal-overlay" id="modal-contact">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal-contact')"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="modal-title">Twandikire</h2>
             <p class="modal-subtitle">Ufite ikibazo cyangwa ushaka gukorana natwe? Uzuza iyi fishi tuzagusubiza vuba.</p>
-            
             <form class="modal-form" id="contactForm">
-                <div class="input-group">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" id="contactName" placeholder="Amazina yawe" required>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="contactEmail" placeholder="Email yawe" required>
-                </div>
-                <div class="input-group">
-                    <i class="fa-solid fa-comment-dots"></i>
-                    <textarea id="contactMessage" placeholder="Ubutumwa bwawe..." required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <i class="fa-solid fa-paper-plane"></i> Ohereza Ubutumwa
-                </button>
+                <div class="input-group"><i class="fa-solid fa-user"></i><input type="text" id="contactName" placeholder="Amazina yawe" required></div>
+                <div class="input-group"><i class="fa-solid fa-envelope"></i><input type="email" id="contactEmail" placeholder="Email yawe" required></div>
+                <div class="input-group"><i class="fa-solid fa-comment-dots"></i><textarea id="contactMessage" placeholder="Ubutumwa bwawe..." required></textarea></div>
+                <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Ohereza Ubutumwa</button>
             </form>
         </div>
     </div>
 
-    <!-- 2. LEARN MORE MODAL (Video Info) - UPDATED: No demo data -->
+    <!-- LEARN MORE MODAL -->
     <div class="modal-overlay" id="modal-learn-more">
         <div class="modal-content modal-video-info">
             <button class="modal-close" onclick="closeModal('modal-learn-more')"><i class="fa-solid fa-xmark"></i></button>
-            
             <div class="modal-video-thumb" id="lm-video-thumb"></div>
-            
             <h3 id="lm-title">Program Title</h3>
-            
             <div class="meta">
                 <span><i class="fa-solid fa-tag"></i> <span id="lm-category">Category</span></span>
-                <span><i class="fa-regular fa-clock"></i> <span id="lm-duration">-</span></span>
+                <span><i class="fa-regular fa-clock"></i> <span id="lm-duration">12 Mins</span></span>
             </div>
-            
             <p id="lm-desc">Amakuru arambuye azagaragara hano.</p>
-            
-            <a href="#" target="_blank" id="lm-link" class="btn-youtube">
-                <i class="fa-brands fa-youtube"></i> Watch on YouTube
-            </a>
+            <a href="#" target="_blank" id="lm-link" class="btn-youtube"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
         </div>
     </div>
 
-    <!-- ================= HEADER / NAVBAR ================= -->
+    <!-- NAVBAR -->
     <header class="navbar" id="navbar">
-        <div class="logo-area" onclick="scrollToSection('home')">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" alt="Logo" class="logo-img">
-        </div>
-
+        <div class="logo-area" onclick="scrollToSection('home')"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" alt="Logo" class="logo-img"></div>
         <ul class="nav-links">
             <li><a onclick="scrollToSection('home')">Home</a></li>
             <li><a onclick="scrollToSection('programs')">Programs</a></li>
@@ -439,102 +217,37 @@
             <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
             <li><a onclick="scrollToSection('faqs')">FAQs</a></li>
         </ul>
-
         <button class="btn-contact-nav" onclick="openModal('modal-contact')">Contact Us</button>
     </header>
 
-    <!-- ================= HERO SECTION ================= -->
+    <!-- HERO -->
     <section class="hero" id="home">
-        <div class="badge">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Empowering African Youth Since 2020
-        </div>
-
-        <h1>
-            Empowering Youth to <span class="text-yellow">Connect,</span><br>
-            <span class="text-pink">Grow</span> & Thrive
-        </h1>
-
-        <p>
-            A fun, supportive community where teens and young adults can connect, 
-            grow, and cheer each other on as you navigate the journey to a more fulfilling life.
-        </p>
-
+        <div class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Empowering African Youth Since 2020</div>
+        <h1>Empowering Youth to <span class="text-yellow">Connect,</span><br><span class="text-pink">Grow</span> & Thrive</h1>
+        <p>A fun, supportive community where teens and young adults can connect, grow, and cheer each other on as you navigate the journey to a more fulfilling life.</p>
         <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="scrollToSection('programs')">
-                Explore Programs <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <button class="btn btn-outline" onclick="openModal('modal-contact')">
-                Learn More
-            </button>
+            <button class="btn btn-primary" onclick="scrollToSection('programs')">Explore Programs <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn btn-outline" onclick="openModal('modal-contact')">Learn More</button>
         </div>
-
         <div class="stats-container">
-            <div class="stat-item">
-                <h2>90+</h2>
-                <p>Youth Impacted</p>
-            </div>
-            <div class="stat-item">
-                <h2>10+</h2>
-                <p>Programs</p>
-            </div>
-            <div class="stat-item">
-                <h2>50+</h2>
-                <p>Mentors</p>
-            </div>
-            <div class="stat-item">
-                <h2>5+</h2>
-                <p>Years</p>
-            </div>
+            <div class="stat-item"><h2 id="statYouth">90+</h2><p>Youth Impacted</p></div>
+            <div class="stat-item"><h2 id="statPrograms">10+</h2><p>Programs</p></div>
+            <div class="stat-item"><h2 id="statMentors">50+</h2><p>Mentors</p></div>
+            <div class="stat-item"><h2 id="statYears">5+</h2><p>Years</p></div>
         </div>
     </section>
 
-    <!-- ================= PROGRAMS SECTION ================= -->
+    <!-- PROGRAMS -->
     <section id="programs">
         <div class="section-container">
             <h2 class="section-title reveal">Our <span>Programs</span></h2>
-            <div class="program-grid">
-                
-                <!-- PROGRAM 1 - No demo video, clean thumbnail, real info -->
-                <div class="program-card reveal delay-1">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Education & Skills', 'Iyi video iravuga ku burezi n\'ubumenyi. Ikorwa na Grow Africa Youth mu rwego rwo gufasha urubyiruko kubona amahirwe. Yigisha uko wakoresha ubumenyi mu buzima bwa buri munsi.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
-                        <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="program-content">
-                        <h3>Education & Skills</h3>
-                        <p>Empowering youth with the knowledge and skills needed for the future.</p>
-                        <button class="btn-read-more" onclick="openLearnMore('Education & Skills', 'Iyi video iravuga ku burezi n\'ubumenyi. Ikorwa na Grow Africa Youth mu rwego rwo gufasha urubyiruko kubona amahirwe. Yigisha uko wakoresha ubumenyi mu buzima bwa buri munsi.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-
-                <!-- PROGRAM 2 - No demo video, clean thumbnail, real info -->
-                <div class="program-card reveal delay-2">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Tech & Innovation', 'Iyi video ivuga ku ikoranabuhanga n\'ubuhanga bwo guhanga udushya. Igaragaza uko urubyiruko rukoresha tekinoloji n\'ubuhanga bwa mudasobwa mu gukemura ibibazo.', 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
-                        <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="program-content">
-                        <h3>Tech & Innovation</h3>
-                        <p>Fostering creativity and digital literacy in the next generation.</p>
-                        <button class="btn-read-more" onclick="openLearnMore('Tech & Innovation', 'Iyi video ivuga ku ikoranabuhanga n\'ubuhanga bwo guhanga udushya. Igaragaza uko urubyiruko rukoresha tekinoloji n\'ubuhanga bwa mudasobwa mu gukemura ibibazo.', 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-
-                <!-- PROGRAM 3 - No demo video, clean thumbnail, real info -->
-                <div class="program-card reveal delay-3">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Business & Startups', 'Iyi video yigisha uko utangira ubucuruzi mu Rwanda no muri Afrika. Igaragaza ingamba n\'uburyo bwo kubona abakiriya, ndetse n\'uburyo bwo gucunga amafaranga.', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
-                        <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="program-content">
-                        <h3>Business & Startups</h3>
-                        <p>Guiding young entrepreneurs to build sustainable businesses.</p>
-                        <button class="btn-read-more" onclick="openLearnMore('Business & Startups', 'Iyi video yigisha uko utangira ubucuruzi mu Rwanda no muri Afrika. Igaragaza ingamba n\'uburyo bwo kubona abakiriya, ndetse n\'uburyo bwo gucunga amafaranga.', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-
+            <div class="program-grid" id="programsGrid">
+                <p style="text-align:center; grid-column: 1/-1;">Loading programs...</p>
             </div>
         </div>
     </section>
 
-    <!-- ================= ABOUT SECTION ================= -->
+    <!-- ABOUT -->
     <section id="about">
         <div class="section-container">
             <h2 class="section-title reveal">About <span>Us</span></h2>
@@ -545,12 +258,12 @@
                     <p>Our mission is to provide a platform where ideas flourish, skills are honed, and dreams are realized. We focus on education, technology, entrepreneurship, and personal development.</p>
                     <p><strong>We Grow. We Rise. We Lead.</strong></p>
                 </div>
-                <div class="about-image reveal delay-2" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
+                <div class="about-image reveal delay-2" id="aboutImage"></div>
             </div>
         </div>
     </section>
 
-    <!-- ================= SPONSOR SECTION ================= -->
+    <!-- SPONSOR -->
     <section id="sponsor">
         <div class="section-container reveal">
             <h2 class="section-title">Become a <span>Sponsor</span></h2>
@@ -559,258 +272,232 @@
         </div>
     </section>
 
-    <!-- ================= TESTIMONIALS SECTION ================= -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials">
         <div class="section-container">
             <h2 class="section-title reveal">What They <span>Say</span></h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card reveal delay-1">
-                    <i class="fa-solid fa-quote-right quote"></i>
-                    <p>"Grow Africa Youth changed my life. The mentorship I received helped me start my own tech startup."</p>
-                    <div class="user-info">
-                        <div class="user-avatar">JD</div>
-                        <div class="user-details">
-                            <h4>John Doe</h4>
-                            <p>Tech Entrepreneur</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal delay-2">
-                    <i class="fa-solid fa-quote-right quote"></i>
-                    <p>"I found a community that truly supports me. The skills I learned here gave me the confidence to pursue my dreams."</p>
-                    <div class="user-info">
-                        <div class="user-avatar" style="background: var(--pink);">AM</div>
-                        <div class="user-details">
-                            <h4>Alice M.</h4>
-                            <p>Student</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal delay-3">
-                    <i class="fa-solid fa-quote-right quote"></i>
-                    <p>"The programs are practical and life-changing. I highly recommend this to any young person looking to grow."</p>
-                    <div class="user-info">
-                        <div class="user-avatar" style="background: var(--yellow); color: var(--dark-bg);">BK</div>
-                        <div class="user-details">
-                            <h4>Brian K.</h4>
-                            <p>Program Alumnus</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="testimonial-grid" id="testimonialsGrid">
+                <p style="text-align:center; grid-column: 1/-1;">Loading testimonials...</p>
             </div>
         </div>
     </section>
 
-    <!-- ================= FAQs SECTION ================= -->
+    <!-- FAQS -->
     <section id="faqs">
         <div class="section-container">
             <h2 class="section-title reveal">Frequently Asked <span>Questions</span></h2>
             <div class="faq-container reveal delay-1">
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>How can I join Grow Africa Youth?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Simply click on the "Contact Us" button, fill out the form, and our team will get back to you with the next steps to join our community.</p>
-                    </div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>How can I join Grow Africa Youth?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Simply click on the "Contact Us" button, fill out the form, and our team will get back to you with the next steps.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Are the programs free?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Most of our core programs are free, thanks to our sponsors and partners. Some specialized workshops may have a small fee.</p>
-                    </div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>Are the programs free?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Most of our core programs are free, thanks to our sponsors and partners. Some specialized workshops may have a small fee.</p></div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you offer online programs?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we offer a mix of both in-person and online programs to ensure accessibility for everyone.</p>
-                    </div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>Do you offer online programs?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Yes, we offer a mix of both in-person and online programs to ensure accessibility for everyone.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer">
-        <p>&copy; 2026 Grow Africa Youth. All rights reserved. | We Grow. We Rise. We Lead.</p>
-    </footer>
+    <footer class="footer"><p>&copy; 2026 Grow Africa Youth. All rights reserved. | We Grow. We Rise. We Lead.</p></footer>
 
-    <!-- ================= JAVASCRIPT ================= -->
-    <script>
-        // ========== FIREBASE CONFIG ==========
-        // ⚠️ HINDURA IYI CONFIG UKORESHEJE IYAWE
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, doc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
         const firebaseConfig = {
-            apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            authDomain: "grow-africa-youth.firebaseapp.com",
-            projectId: "grow-africa-youth",
-            storageBucket: "grow-africa-youth.appspot.com",
-            messagingSenderId: "123456789012",
-            appId: "1:123456789012:web:abcdef123456"
+            apiKey: "AIzaSyCdguo8U_KDZy_p8fa-sbRAq_sRrI8MQtA",
+            authDomain: "growth-youth-africa.firebaseapp.com",
+            projectId: "growth-youth-africa",
+            storageBucket: "growth-youth-africa.firebasestorage.app",
+            messagingSenderId: "1014763751578",
+            appId: "1:1014763751578:web:cb1fba7cc53548c42eb723"
         };
 
-        // ========== FIREBASE SDK IMPORT ==========
-        // Koresha module script kuri Firebase
-        (async function initFirebase() {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Load everything
+        async function loadSiteData() {
+            await Promise.all([loadPrograms(), loadTestimonials(), loadStats(), loadAboutImage()]);
+            initRevealAnimations();
+        }
+
+        async function loadPrograms() {
+            const grid = document.getElementById('programsGrid');
             try {
-                const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
-                const { getFirestore, collection, addDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
-                
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-                
-                window.fbDB = db;
-                window.fbCollection = collection;
-                window.fbAddDoc = addDoc;
-                window.fbServerTimestamp = serverTimestamp;
-                
-                console.log("Firebase yiteguye neza.");
-            } catch (err) {
-                console.error("Firebase initialization error:", err);
+                const snap = await getDocs(collection(db, "videos"));
+                grid.innerHTML = '';
+                if(snap.empty) {
+                    grid.innerHTML = '<p style="text-align:center; grid-column:1/-1;">Nta programs zirahari. Admin azongeraho vuba.</p>';
+                    return;
+                }
+                let i = 1;
+                snap.forEach(d => {
+                    const v = d.data();
+                    const delay = 'delay-' + ((i % 3) || 3);
+                    const img = v.image || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
+                    const card = document.createElement('div');
+                    card.className = `program-card reveal ${delay}`;
+                    card.innerHTML = `
+                        <div class="video-thumbnail" style="background-image: url('${img}');" onclick="openLearnMore('${v.title.replace(/'/g, "\\'")}', '${(v.description || 'Reba iyi video kubona ibirimo byose.').replace(/'/g, "\\'")}', '${img}', '${v.url}')">
+                            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <div class="program-content">
+                            <h3>${v.title}</h3>
+                            <p>${v.category}</p>
+                            <button class="btn-read-more" onclick="openLearnMore('${v.title.replace(/'/g, "\\'")}', '${(v.description || 'Reba iyi video.').replace(/'/g, "\\'")}', '${img}', '${v.url}')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>`;
+                    grid.appendChild(card);
+                    i++;
+                });
+            } catch(e) {
+                console.error(e);
+                grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:red;">Error loading programs.</p>';
             }
-        })();
-
-        // ========== MODAL FUNCTIONS ==========
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal-overlay')) {
-                event.target.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        async function loadTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+            try {
+                const snap = await getDocs(collection(db, "testimonials"));
+                grid.innerHTML = '';
+                if(snap.empty) {
+                    grid.innerHTML = '<p style="text-align:center; grid-column:1/-1;">Nta testimonials zirahari.</p>';
+                    return;
+                }
+                let i = 1;
+                const colors = ['var(--primary-purple)', 'var(--pink)', 'var(--yellow)'];
+                snap.forEach(d => {
+                    const t = d.data();
+                    const delay = 'delay-' + ((i % 3) || 3);
+                    const bg = colors[(i-1) % 3];
+                    const colorText = (i % 3 === 0) ? 'color: var(--dark-bg);' : 'color: white;';
+                    const card = document.createElement('div');
+                    card.className = `testimonial-card reveal ${delay}`;
+                    card.innerHTML = `
+                        <i class="fa-solid fa-quote-right quote"></i>
+                        <p>"${t.message}"</p>
+                        <div class="user-info">
+                            <div class="user-avatar" style="background: ${bg}; ${colorText}">${t.initials}</div>
+                            <div class="user-details"><h4>${t.name}</h4><p>${t.role}</p></div>
+                        </div>`;
+                    grid.appendChild(card);
+                    i++;
+                });
+            } catch(e) {
+                grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:red;">Error loading testimonials.</p>';
             }
-        };
-
-        // ========== TOAST ==========
-        function showToast(message) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(20px)';
-                setTimeout(() => { toast.remove(); }, 400);
-            }, 3000);
         }
 
-        // ========== LEARN MORE MODAL ==========
-        function openLearnMore(title, description, imageUrl, videoUrl) {
-            document.getElementById('lm-title').innerText = title;
-            document.getElementById('lm-desc').innerText = description;
-            document.getElementById('lm-link').href = videoUrl;
-            document.getElementById('lm-video-thumb').style.backgroundImage = `url('${imageUrl}')`;
-            document.getElementById('lm-category').innerText = title.split(' ')[0];
-            document.getElementById('lm-duration').innerText = "12 Mins";
-            openModal('modal-learn-more');
+        async function loadStats() {
+            try {
+                const snap = await getDoc(doc(db, "settings", "siteStats"));
+                if(snap.exists()) {
+                    const s = snap.data();
+                    if(s.youth) document.getElementById('statYouth').innerText = s.youth;
+                    if(s.programs) document.getElementById('statPrograms').innerText = s.programs;
+                    if(s.mentors) document.getElementById('statMentors').innerText = s.mentors;
+                    if(s.years) document.getElementById('statYears').innerText = s.years;
+                }
+            } catch(e) { console.log(e); }
         }
 
-        // ========== CONTACT FORM (Firebase) ==========
+        async function loadAboutImage() {
+            try {
+                const snap = await getDoc(doc(db, "settings", "siteSettings"));
+                if(snap.exists() && snap.data().aboutImage) {
+                    document.getElementById('aboutImage').style.backgroundImage = `url('${snap.data().aboutImage}')`;
+                } else {
+                    document.getElementById('aboutImage').style.backgroundImage = `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80')`;
+                }
+            } catch(e) {
+                document.getElementById('aboutImage').style.backgroundImage = `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80')`;
+            }
+        }
+
+        // CONTACT FORM
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-
             const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-
+            const orig = btn.innerHTML;
             const name = document.getElementById('contactName').value.trim();
             const email = document.getElementById('contactEmail').value.trim();
             const message = document.getElementById('contactMessage').value.trim();
-
-            if (!name || !email || !message) {
-                showToast('Nyamuneka uzuza ibice byose!');
-                return;
-            }
-
-            // Reba niba Firebase yiteguye
-            if (!window.fbDB || !window.fbAddDoc) {
-                showToast('Firebase ntirabona. Reba config yawe.');
-                console.error("Firebase ntirabona. Reba config yawe.");
-                return;
-            }
-
+            if(!name || !email || !message) { showToast('Uzuza ibice byose!'); return; }
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Ohereza...';
             btn.disabled = true;
-
             try {
-                await window.fbAddDoc(
-                    window.fbCollection(window.fbDB, "contacts"),
-                    {
-                        name: name,
-                        email: email,
-                        message: message,
-                        createdAt: window.fbServerTimestamp()
-                    }
-                );
-
+                await addDoc(collection(db, "contacts"), { name, email, message, createdAt: serverTimestamp() });
                 closeModal('modal-contact');
-                showToast('Ubutumwa bwawe bwakiriwe neza! Tuzagusubiza vuba.');
+                showToast('Ubutumwa bwakiriwe! Tuzagusubiza vuba.');
                 this.reset();
-            } catch (error) {
-                console.error("Firebase error:", error);
+            } catch(e) {
                 showToast('Habaye ikibazo. Ongera ugerageze.');
             } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                btn.innerHTML = orig; btn.disabled = false;
             }
         });
 
-        // ========== SMOOTH SCROLL ==========
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const yOffset = -80;
-                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        }
+        // UI Functions
+        window.openModal = function(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; };
+        window.closeModal = function(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = 'auto'; };
+        window.onclick = function(event) { if(event.target.classList.contains('modal-overlay')) { event.target.classList.remove('active'); document.body.style.overflow = 'auto'; } };
 
-        // ========== FAQ TOGGLE ==========
-        function toggleFaq(element) {
-            const item = element.parentElement;
-            document.querySelectorAll('.faq-item').forEach(faq => {
-                if (faq !== item) faq.classList.remove('active');
-            });
+        window.showToast = function(msg) {
+            const c = document.getElementById('toast-container');
+            const t = document.createElement('div');
+            t.className = 'toast';
+            t.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${msg}</span>`;
+            c.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(20px)'; setTimeout(() => t.remove(), 400); }, 3000);
+        };
+
+        window.openLearnMore = function(title, desc, image, url) {
+            document.getElementById('lm-title').innerText = title;
+            document.getElementById('lm-desc').innerText = desc;
+            document.getElementById('lm-link').href = url;
+            document.getElementById('lm-video-thumb').style.backgroundImage = `url('${image}')`;
+            document.getElementById('lm-category').innerText = title.split(' ')[0];
+            openModal('modal-learn-more');
+        };
+
+        window.scrollToSection = function(id) {
+            const sec = document.getElementById(id);
+            if(sec) {
+                const y = sec.getBoundingClientRect().top + window.pageYOffset - 80;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        };
+
+        window.toggleFaq = function(el) {
+            const item = el.parentElement;
+            document.querySelectorAll('.faq-item').forEach(f => { if(f !== item) f.classList.remove('active'); });
             item.classList.toggle('active');
+        };
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        function initRevealAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            reveals.forEach(r => obs.observe(r));
         }
 
-        // ========== NAVBAR SCROLL & REVEAL ==========
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-
-            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                });
-            }, revealOptions);
-
-            reveals.forEach(reveal => revealOnScroll.observe(reveal));
-        });
+        // Start loading
+        loadSiteData();
     </script>
 </body>
 </html>
