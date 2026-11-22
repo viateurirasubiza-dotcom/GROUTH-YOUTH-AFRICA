@@ -327,39 +327,63 @@
             initRevealAnimations();
         }
 
-        async function loadPrograms() {
-            const grid = document.getElementById('programsGrid');
-            try {
-                const snap = await getDocs(collection(db, "videos"));
-                grid.innerHTML = '';
-                if(snap.empty) {
-                    grid.innerHTML = '<p style="text-align:center; grid-column:1/-1;">Nta programs zirahari. Admin azongeraho vuba.</p>';
-                    return;
-                }
-                let i = 1;
-                snap.forEach(d => {
-                    const v = d.data();
-                    const delay = 'delay-' + ((i % 3) || 3);
-                    const img = v.image || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80';
-                    const card = document.createElement('div');
-                    card.className = `program-card reveal ${delay}`;
-                    card.innerHTML = `
-                        <div class="video-thumbnail" style="background-image: url('${img}');" onclick="openLearnMore('${v.title.replace(/'/g, "\\'")}', '${(v.description || 'Reba iyi video kubona ibirimo byose.').replace(/'/g, "\\'")}', '${img}', '${v.url}')">
-                            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
-                        </div>
-                        <div class="program-content">
-                            <h3>${v.title}</h3>
-                            <p>${v.category}</p>
-                            <button class="btn-read-more" onclick="openLearnMore('${v.title.replace(/'/g, "\\'")}', '${(v.description || 'Reba iyi video.').replace(/'/g, "\\'")}', '${img}', '${v.url}')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
-                        </div>`;
-                    grid.appendChild(card);
-                    i++;
-                });
-            } catch(e) {
-                console.error(e);
-                grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:red;">Error loading programs.</p>';
-            }
+     async function loadPrograms() {
+    const grid = document.getElementById('programsGrid');
+    try {
+        const snap = await getDocs(collection(db, "videos"));
+        grid.innerHTML = '';
+        
+        // Niba nta video ihari muri database
+        if(snap.empty) {
+            grid.innerHTML = '<p style="text-align:center; grid-column:1/-1;">Nta programs zirahari. Admin azongeraho vuba.</p>';
+            return;
         }
+
+        let i = 1;
+        snap.forEach(d => {
+            const v = d.data();
+            const delay = 'delay-' + ((i % 3) || 3);
+            
+            // ==========================================
+            // GUKEMURA IKIBAZO CY'IFOTO (IMAGE FALLBACK)
+            // ==========================================
+            // Dushaka ifoto ya video. Niba itabonetse cyangwa ari ubusa (null, empty, cyangwa space), 
+            // dukoresha iyi foto isanzwe (Unsplash).
+            const defaultImage = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+            
+            // Kugenzura niba v.image iriho kandi itari ubusa
+            const img = (v.image && v.image.trim() !== "") ? v.image : defaultImage;
+
+            // ==========================================
+            // GUKEMURA IKIBAZO CY'AMAGAMBO (TEXT FALLBACK)
+            // ==========================================
+            const titleText = v.title ? v.title.replace(/'/g, "\\'") : 'Nta Mutwe';
+            const categoryText = v.category ? v.category : 'General';
+            const descText = v.description ? v.description.replace(/'/g, "\\'") : 'Reba iyi video kubona ibirimo byose.';
+            const videoUrl = v.url ? v.url : '#';
+
+            // Kora card ya video
+            const card = document.createElement('div');
+            card.className = `program-card reveal ${delay}`;
+            
+            card.innerHTML = `
+                <div class="video-thumbnail" style="background-image: url('${img}'); background-size: cover; background-position: center;" onclick="openLearnMore('${titleText}', '${descText}', '${img}', '${videoUrl}')">
+                    <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="program-content">
+                    <h3>${titleText}</h3>
+                    <p>${categoryText}</p>
+                    <button class="btn-read-more" onclick="openLearnMore('${titleText}', '${descText}', '${img}', '${videoUrl}')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            `;
+            grid.appendChild(card);
+            i++;
+        });
+    } catch(e) {
+        console.error("Error loading programs: ", e);
+        grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:red;">Habaye ikibazo mu kubona programs.</p>';
+    }
+}
 
         async function loadTestimonials() {
             const grid = document.getElementById('testimonialsGrid');
