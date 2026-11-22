@@ -163,11 +163,10 @@
         }
         .program-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15); }
         
-        /* Hano nashyizeho "Placeholder" (Icyatsi) aho ifoto ya video izajya. Ushobora guhindura url() uyishyiremo ifoto yawe */
         .video-thumbnail {
             position: relative;
             height: 220px;
-            background: linear-gradient(45deg, #1e293b, #334155); /* Iciyeye kiba aho ifoto itarabaho */
+            background: linear-gradient(45deg, #1e293b, #334155);
             background-size: cover;
             background-position: center;
             cursor: pointer;
@@ -176,7 +175,6 @@
             align-items: center;
             overflow: hidden;
         }
-        /* Iyi class izajya ishyiraho ifoto iyo uyiha mu HTML (style="background-image: url('...')") */
         
         .video-thumbnail::after {
             content: '';
@@ -224,12 +222,10 @@
         .about-text { flex: 1; }
         .about-text p { color: var(--text-light); font-size: 1.05rem; margin-bottom: 20px; }
         
-        /* Hano nashyize "Placeholder" ngo ushyire ifoto yawe ya About */
         .about-image { 
             flex: 1; height: 400px; 
-            background: linear-gradient(45deg, #1e293b, #334155); /* Iciyeye kiba aho ifoto itarabaho */
+            background: linear-gradient(45deg, #1e293b, #334155);
             border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-            /* SHYIRAMO IFOTO YAWE HANO: background: url('ifoto_yawe.jpg') center/cover; */
         }
 
         /* --- SPONSOR --- */
@@ -280,7 +276,7 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
 
-        /* ================= MODALS (Design Nziza) ================= */
+        /* ================= MODALS ================= */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; 
@@ -371,7 +367,6 @@
 <body>
 
     <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
-    <!-- HANO: Hindura "+250788123456" ushyiremo nimero yawe nyayo ya WhatsApp -->
     <a href="https://wa.me/250788123456?text=Muraho%20Grow%20Africa%20Youth,%20nifuza%20kubamenya%20byinshi." target="_blank" class="whatsapp-float" title="Twandikire kuri WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -391,15 +386,15 @@
             <form class="modal-form" id="contactForm">
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Amazina yawe" required>
+                    <input type="text" id="contactName" placeholder="Amazina yawe" required>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email yawe" required>
+                    <input type="email" id="contactEmail" placeholder="Email yawe" required>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-comment-dots"></i>
-                    <textarea placeholder="Ubutumwa bwawe..." required></textarea>
+                    <textarea id="contactMessage" placeholder="Ubutumwa bwawe..." required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">
                     <i class="fa-solid fa-paper-plane"></i> Ohereza Ubutumwa
@@ -408,22 +403,21 @@
         </div>
     </div>
 
-    <!-- 2. LEARN MORE MODAL (Video Info) -->
+    <!-- 2. LEARN MORE MODAL (Video Info) - UPDATED: No demo data -->
     <div class="modal-overlay" id="modal-learn-more">
         <div class="modal-content modal-video-info">
             <button class="modal-close" onclick="closeModal('modal-learn-more')"><i class="fa-solid fa-xmark"></i></button>
             
-            <!-- Hano ni ho ifoto ya video izajya (Iri muri JS) -->
             <div class="modal-video-thumb" id="lm-video-thumb"></div>
             
             <h3 id="lm-title">Program Title</h3>
             
             <div class="meta">
                 <span><i class="fa-solid fa-tag"></i> <span id="lm-category">Category</span></span>
-                <span><i class="fa-regular fa-clock"></i> <span id="lm-duration">10 mins</span></span>
+                <span><i class="fa-regular fa-clock"></i> <span id="lm-duration">-</span></span>
             </div>
             
-            <p id="lm-desc">Ubu ni ubutumwa burambuye kuva kuri iyi video. Ushobora gusoma ibirimo, cyangwa ukanda buto iri hasi ngo ujye kuri YouTube kubona video yose.</p>
+            <p id="lm-desc">Amakuru arambuye azagaragara hano.</p>
             
             <a href="#" target="_blank" id="lm-link" class="btn-youtube">
                 <i class="fa-brands fa-youtube"></i> Watch on YouTube
@@ -434,7 +428,6 @@
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar" id="navbar">
         <div class="logo-area" onclick="scrollToSection('home')">
-            <!-- HANO: SHYIRAMO LOGO YAWE NYAYO -->
             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" alt="Logo" class="logo-img">
         </div>
 
@@ -501,58 +494,39 @@
             <h2 class="section-title reveal">Our <span>Programs</span></h2>
             <div class="program-grid">
                 
-                <!-- PROGRAM 1 (Nta foto ya demo irimo, ni "Placeholder") -->
+                <!-- PROGRAM 1 - No demo video, clean thumbnail, real info -->
                 <div class="program-card reveal delay-1">
-                    <!-- SHYIRAMO IFOTO YAWE HANO: style="background-image: url('ifoto_yawe.jpg');" -->
-                    <div class="video-thumbnail" onclick="window.open('https://youtube.com', '_blank')">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Education & Skills', 'Iyi video iravuga ku burezi n\'ubumenyi. Ikorwa na Grow Africa Youth mu rwego rwo gufasha urubyiruko kubona amahirwe. Yigisha uko wakoresha ubumenyi mu buzima bwa buri munsi.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
                         <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="program-content">
                         <h3>Education & Skills</h3>
                         <p>Empowering youth with the knowledge and skills needed for the future.</p>
-                        <!-- Hano: Shyiraho ifoto yawe (imageUrl) na link ya YouTube (videoUrl) -->
-                        <button class="btn-read-more" onclick="openLearnMore(
-                            'Education & Skills', 
-                            'Iyi video iravuga ku burezi n\'ubumenyi. Ikorwa na Grow Africa Youth mu rwego rwo gufasha urubyiruko kubona amahirwe. Yigisha uko wakoresha ubumenyi mu buzima bwa buri munsi.', 
-                            'IFOTO_YAW_HANO.jpg', 
-                            'https://youtube.com'
-                        )">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="btn-read-more" onclick="openLearnMore('Education & Skills', 'Iyi video iravuga ku burezi n\'ubumenyi. Ikorwa na Grow Africa Youth mu rwego rwo gufasha urubyiruko kubona amahirwe. Yigisha uko wakoresha ubumenyi mu buzima bwa buri munsi.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <!-- PROGRAM 2 (Nta foto ya demo irimo, ni "Placeholder") -->
+                <!-- PROGRAM 2 - No demo video, clean thumbnail, real info -->
                 <div class="program-card reveal delay-2">
-                    <!-- SHYIRAMO IFOTO YAWE HANO: style="background-image: url('ifoto_yawe.jpg');" -->
-                    <div class="video-thumbnail" onclick="window.open('https://youtube.com', '_blank')">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Tech & Innovation', 'Iyi video ivuga ku ikoranabuhanga n\'ubuhanga bwo guhanga udushya. Igaragaza uko urubyiruko rukoresha tekinoloji n\'ubuhanga bwa mudasobwa mu gukemura ibibazo.', 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
                         <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="program-content">
                         <h3>Tech & Innovation</h3>
                         <p>Fostering creativity and digital literacy in the next generation.</p>
-                        <button class="btn-read-more" onclick="openLearnMore(
-                            'Tech & Innovation', 
-                            'Iyi video ivuga ku ikoranabuhanga n\'ubuhanga bwo guhanga udushya. Igaragaza uko urubyiruko rukoresha tekinoloji n\'ubuhanga bwa mudasobwa mu gukemura ibibazo.', 
-                            'IFOTO_YAW_HANO.jpg', 
-                            'https://youtube.com'
-                        )">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="btn-read-more" onclick="openLearnMore('Tech & Innovation', 'Iyi video ivuga ku ikoranabuhanga n\'ubuhanga bwo guhanga udushya. Igaragaza uko urubyiruko rukoresha tekinoloji n\'ubuhanga bwa mudasobwa mu gukemura ibibazo.', 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <!-- PROGRAM 3 (Nta foto ya demo irimo, ni "Placeholder") -->
+                <!-- PROGRAM 3 - No demo video, clean thumbnail, real info -->
                 <div class="program-card reveal delay-3">
-                    <!-- SHYIRAMO IFOTO YAWE HANO: style="background-image: url('ifoto_yawe.jpg');" -->
-                    <div class="video-thumbnail" onclick="window.open('https://youtube.com', '_blank')">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" onclick="openLearnMore('Business & Startups', 'Iyi video yigisha uko utangira ubucuruzi mu Rwanda no muri Afrika. Igaragaza ingamba n\'uburyo bwo kubona abakiriya, ndetse n\'uburyo bwo gucunga amafaranga.', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">
                         <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="program-content">
                         <h3>Business & Startups</h3>
                         <p>Guiding young entrepreneurs to build sustainable businesses.</p>
-                        <button class="btn-read-more" onclick="openLearnMore(
-                            'Business & Startups', 
-                            'Iyi video yigisha uko utangira ubucuruzi mu Rwanda no muri Afrika. Igaragaza ingamba n\'uburyo bwo kubona abakiriya, ndetse n\'uburyo bwo gucunga amafaranga.', 
-                            'IFOTO_YAW_HANO.jpg', 
-                            'https://youtube.com'
-                        )">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="btn-read-more" onclick="openLearnMore('Business & Startups', 'Iyi video yigisha uko utangira ubucuruzi mu Rwanda no muri Afrika. Igaragaza ingamba n\'uburyo bwo kubona abakiriya, ndetse n\'uburyo bwo gucunga amafaranga.', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'https://youtube.com')">Learn More <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
 
@@ -571,7 +545,7 @@
                     <p>Our mission is to provide a platform where ideas flourish, skills are honed, and dreams are realized. We focus on education, technology, entrepreneurship, and personal development.</p>
                     <p><strong>We Grow. We Rise. We Lead.</strong></p>
                 </div>
-                <div class="about-image reveal delay-2"></div>
+                <div class="about-image reveal delay-2" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
             </div>
         </div>
     </section>
@@ -670,7 +644,39 @@
 
     <!-- ================= JAVASCRIPT ================= -->
     <script>
-        // 1. Modal Functions
+        // ========== FIREBASE CONFIG ==========
+        // ⚠️ HINDURA IYI CONFIG UKORESHEJE IYAWE
+        const firebaseConfig = {
+            apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            authDomain: "grow-africa-youth.firebaseapp.com",
+            projectId: "grow-africa-youth",
+            storageBucket: "grow-africa-youth.appspot.com",
+            messagingSenderId: "123456789012",
+            appId: "1:123456789012:web:abcdef123456"
+        };
+
+        // ========== FIREBASE SDK IMPORT ==========
+        // Koresha module script kuri Firebase
+        (async function initFirebase() {
+            try {
+                const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+                const { getFirestore, collection, addDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+                
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                
+                window.fbDB = db;
+                window.fbCollection = collection;
+                window.fbAddDoc = addDoc;
+                window.fbServerTimestamp = serverTimestamp;
+                
+                console.log("Firebase yiteguye neza.");
+            } catch (err) {
+                console.error("Firebase initialization error:", err);
+            }
+        })();
+
+        // ========== MODAL FUNCTIONS ==========
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -686,9 +692,9 @@
                 event.target.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        }
+        };
 
-        // 2. Function yo kwerekana "Toast" (Ubutumwa bugufi)
+        // ========== TOAST ==========
         function showToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -702,58 +708,86 @@
             }, 3000);
         }
 
-        // 3. GuFungura "Learn More" Modal hamwe n'amakuru arambuye
+        // ========== LEARN MORE MODAL ==========
         function openLearnMore(title, description, imageUrl, videoUrl) {
             document.getElementById('lm-title').innerText = title;
             document.getElementById('lm-desc').innerText = description;
             document.getElementById('lm-link').href = videoUrl;
-            
-            // Iyi ifoto irahinduka ikurikije iyo uyihaye muri HTML
             document.getElementById('lm-video-thumb').style.backgroundImage = `url('${imageUrl}')`;
-            
             document.getElementById('lm-category').innerText = title.split(' ')[0];
-            document.getElementById('lm-duration').innerText = "12 Mins"; 
-
+            document.getElementById('lm-duration').innerText = "12 Mins";
             openModal('modal-learn-more');
         }
 
-        // 4. Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // ========== CONTACT FORM (Firebase) ==========
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+
             const btn = this.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (!name || !email || !message) {
+                showToast('Nyamuneka uzuza ibice byose!');
+                return;
+            }
+
+            // Reba niba Firebase yiteguye
+            if (!window.fbDB || !window.fbAddDoc) {
+                showToast('Firebase ntirabona. Reba config yawe.');
+                console.error("Firebase ntirabona. Reba config yawe.");
+                return;
+            }
+
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Ohereza...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+            try {
+                await window.fbAddDoc(
+                    window.fbCollection(window.fbDB, "contacts"),
+                    {
+                        name: name,
+                        email: email,
+                        message: message,
+                        createdAt: window.fbServerTimestamp()
+                    }
+                );
+
                 closeModal('modal-contact');
                 showToast('Ubutumwa bwawe bwakiriwe neza! Tuzagusubiza vuba.');
                 this.reset();
-            }, 1500);
+            } catch (error) {
+                console.error("Firebase error:", error);
+                showToast('Habaye ikibazo. Ongera ugerageze.');
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
         });
 
-        // 5. Smooth Scroll to Sections
+        // ========== SMOOTH SCROLL ==========
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
-            if(section) {
-                const yOffset = -80; 
+            if (section) {
+                const yOffset = -80;
                 const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
         }
 
-        // 6. FAQ Toggle
+        // ========== FAQ TOGGLE ==========
         function toggleFaq(element) {
             const item = element.parentElement;
             document.querySelectorAll('.faq-item').forEach(faq => {
-                if(faq !== item) faq.classList.remove('active');
+                if (faq !== item) faq.classList.remove('active');
             });
             item.classList.toggle('active');
         }
 
-        // 7. Navbar Scroll Effect & Scroll Reveal Animation
+        // ========== NAVBAR SCROLL & REVEAL ==========
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
