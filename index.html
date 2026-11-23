@@ -9,7 +9,7 @@
     <style>
         :root {
             --primary-purple: #6b21a8;
-          --hero-overlay: linear-gradient(135deg, rgba(107, 33, 168, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+            --hero-overlay: linear-gradient(135deg, rgba(107, 33, 168, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
             --yellow: #facc15;
             --pink: #ec4899;
             --white: #ffffff;
@@ -46,7 +46,8 @@
         .btn-contact-nav { background: var(--white); color: var(--primary-purple); padding: 10px 25px; border-radius: 30px; font-weight: 700; transition: var(--transition); border: none; cursor: pointer; }
         .btn-contact-nav:hover { background: var(--yellow); transform: translateY(-2px); }
 
-        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1200px 20px 60px; background: var(--hero-overlay), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;   color: white; }
+        /* HANO IFOTO Y'ABANA YAGARUTSE NEZA */
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 60px; background: var(--hero-overlay), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; background-blend-mode: overlay; color: white; }
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; animation: fadeInUp 0.8s ease-out 0.2s both; }
         .badge i { color: var(--yellow); }
         .hero h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.1; max-width: 900px; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.4s both; letter-spacing: -1px; }
@@ -222,7 +223,6 @@
 
     <!-- HERO -->
     <section class="hero" id="home">
-      
         <h1>Empowering Youth to <span class="text-yellow">Connect,</span><br><span class="text-pink">Grow</span> & Thrive</h1>
         <p>A fun, supportive community where teens and young adults can connect, grow, and cheer each other on as you navigate the journey to a more fulfilling life.</p>
         <div class="hero-buttons">
@@ -347,11 +347,8 @@
             // ==========================================
             // GUKEMURA IKIBAZO CY'IFOTO (IMAGE FALLBACK)
             // ==========================================
-            // Dushaka ifoto ya video. Niba itabonetse cyangwa ari ubusa (null, empty, cyangwa space), 
-            // dukoresha iyi foto isanzwe (Unsplash).
             const defaultImage = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
             
-            // Kugenzura niba v.image iriho kandi itari ubusa
             const img = (v.image && v.image.trim() !== "") ? v.image : defaultImage;
 
             // ==========================================
